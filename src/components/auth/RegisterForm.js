@@ -1,58 +1,93 @@
 import logoregister from "../../assets/images/logoregister.png";
-import React from "react";
+import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 function RegisterForm() {
+  const { signUp } = useAuth();
+  const [firstName, setFirstNamne] = useState("");
+  const [lastName, setLastNamne] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const handlesunmit = async () => {
+    try {
+      await signUp(firstName, lastName, email, password, confirmPassword);
+      console.log("first");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  console.log(email);
   return (
-    <div className=" container">
+    <div className="container">
       <div className="row">
-        <div className="setimage col  ">
-          <img src={logoregister} />
+        <div className="setimage col">
+          <img src={logoregister} alt="" />
         </div>
         <div className="col ">
           <div className="register d-flex flex-column  py-5">
             <div className="mb-3">
               <div className=" px-5">Create your account</div>
             </div>
-            <div className="boxregister container-fluid mt-4 ">
+            <div className="boxregister container-fluid   ">
               {/*First Name*/}
-
-              <div class="input-group px-3 p-3 mb-3">
+              <div className="input-group px-3 p-3 ">
                 <input
+                  value={firstName}
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="First Name"
+                  onChange={(e) => setFirstNamne(e.target.value)}
                 />
               </div>
               {/*Last Name*/}
-              <div class="input-group px-3 p-3 mb-3">
+              <div className="input-group px-3 p-3 ">
                 <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Last Name"
-                />
-              </div>
-              {/*Address*/}
-              <div class="input-group px-3 p-3 mb-3">
-                <input
+                  value={lastName}
                   type="text"
                   className="form-control"
-                  placeholder="Address"
+                  placeholder="Last Name"
+                  onChange={(e) => setLastNamne(e.target.value)}
                 />
               </div>
-              {/*Phone Number*/}
-              <div class="input-group px-3 p-3 mb-3">
+              {/*email*/}
+              <div className="input-group px-3 p-3 ">
                 <input
+                  value={email}
                   type="text"
-                  class="form-control"
-                  placeholder="Phone Number"
+                  className="form-control"
+                  placeholder="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+
+              {/*Password*/}
+              <div className="input-group px-3 p-3 ">
+                <input
+                  value={password}
+                  type="password"
+                  className="form-control"
+                  placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+
+              {/*Confirm Password*/}
+              <div className="input-group px-3 p-3 ">
+                <input
+                  value={confirmPassword}
+                  type="password"
+                  className="form-control"
+                  placeholder="Confirm password"
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </div>
             </div>
-            <div className=" d-flex justify-content-center ">
-              <a href="setpassword" class="btn btn-danger stretched-link">
-                Next
-              </a>
+            <div className=" d-flex justify-content-center mt-3 ">
+              <button className="btn btn-danger" onClick={handlesunmit}>
+                Create
+              </button>
             </div>
           </div>
         </div>
