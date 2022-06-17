@@ -48,7 +48,7 @@ function AuthContextProvider({ children }) {
     setAccessToken(res.data.token);
     const resMe = await axios.get("/users/me");
     setUser(resMe.data.user);
-    navigate("/products");
+    navigate("/product");
   };
 
   const login = async (email, password) => {
@@ -57,7 +57,7 @@ function AuthContextProvider({ children }) {
       setAccessToken(res.data.token);
       const resMe = await axios.get("/users/me");
       setUser(resMe.data.user);
-      navigate("/products");
+      navigate("/product");
     } catch (error) {
       console.log(error.response.data);
     }

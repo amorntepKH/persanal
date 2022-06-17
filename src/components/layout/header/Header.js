@@ -5,14 +5,21 @@ import Logo from "./Logo";
 
 function Header() {
   const { user, logout } = useAuth();
-  console.log(user);
+  // console.log(user);
   return (
-    <div className="container-fluid bg-danger">
+    <div className="container-fluid bg-danger ">
       <nav className="navbar navbar-expand-sm navbar-light bg-danger shadow-sm py-0   ">
         <div className="container bg-danger">
           <Logo />
           {user ? (
             <div className="d-flex justify-content-end align-items-center">
+              {user?.role === "admin" ? (
+                <>
+                  <button onClick={logout}>logout</button>
+                </>
+              ) : (
+                <></>
+              )}
               <button onClick={logout}>logout</button>
             </div>
           ) : (

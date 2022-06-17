@@ -9,13 +9,16 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 import "./theme.css";
 import AuthContextProvider from "./components/context/AuthContext";
+import ProductContextProvider from "./components/context/ProductContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AuthContextProvider>
-        <App />
-      </AuthContextProvider>
+      <ProductContextProvider>
+        <AuthContextProvider>
+          <App />
+        </AuthContextProvider>
+      </ProductContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -6,7 +6,6 @@ import LoginForm from "../auth/LoginForm";
 
 import AuthLayout from "../layout/AuthLayout";
 import RegisterForm from "../auth/RegisterForm";
-import SetPasswordForm from "../auth/SetPasswordForm";
 import ShowProduct from "../products/ShowProduct";
 
 function Router() {
