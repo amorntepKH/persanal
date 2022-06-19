@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import Logo from "./Logo";
 
 function Header() {
+  const Navigate = useNavigate();
   const { user, logout } = useAuth();
   // console.log(user);
   return (
@@ -12,13 +13,16 @@ function Header() {
         <div className="container bg-danger">
           <Logo />
           {user ? (
-            <div className="d-flex justify-content-end align-items-center">
+            <div className="d-flex justify-content-end align-items-center gap-3">
               {user?.role === "admin" ? (
                 <>
-                  <button onClick={logout}>logout</button>
+                  <button onClick={() => Navigate("/admin")}>admin</button>
+                  <button onClick={() => Navigate("/product")}>products</button>
                 </>
               ) : (
-                <></>
+                <>
+                  <button onClick={() => Navigate("/product")}>products</button>
+                </>
               )}
               <button onClick={logout}>logout</button>
             </div>

@@ -7,6 +7,7 @@ import LoginForm from "../auth/LoginForm";
 import AuthLayout from "../layout/AuthLayout";
 import RegisterForm from "../auth/RegisterForm";
 import ShowProduct from "../products/ShowProduct";
+import CartPage from "../../pages/Cart/CartPage";
 
 function Router() {
   return (
@@ -16,6 +17,7 @@ function Router() {
         <Route path="login" element={<LoginForm />} />
         <Route path="product" element={<ProductPage />} />
         <Route path="showproduct" element={<ShowProduct />} />
+        <Route path="cartpage" element={<CartPage />} />
         <Route path="register" element={<RegisterForm />} />
         <Route path="admin" element={<AdminPage />} />
         <Route path="*" element={<HomePage />} />

@@ -10,7 +10,7 @@ function RegisterForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const handlesunmit = async () => {
+  const handlesubmit = async () => {
     try {
       await signUp(firstName, lastName, email, password, confirmPassword);
       console.log("first");
@@ -85,7 +85,7 @@ function RegisterForm() {
               </div>
             </div>
             <div className=" d-flex justify-content-center mt-3 ">
-              <button className="btn btn-danger" onClick={handlesunmit}>
+              <button className="btn btn-danger" onClick={handlesubmit}>
                 Create
               </button>
             </div>

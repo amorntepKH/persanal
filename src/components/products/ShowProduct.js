@@ -1,4 +1,3 @@
-import profileImg from "../../assets/images/profileImg.png";
 import imgproduct from "../../assets/images/imgproduct.png";
 import React from "react";
 
