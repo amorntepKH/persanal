@@ -1,5 +1,5 @@
 import logoregister from "../../assets/images/logoregister.png";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "../../config/axios";
 import { useAuth } from "../context/AuthContext";
 
@@ -10,14 +10,13 @@ function LoginForm() {
 
   const handlesubmit = (e) => {
     e.preventDefault();
-
     login(email, password);
   };
 
   return (
     <div className=" container">
       <div className="row">
-        <div className="setimage col ">
+        <div className="setimage col">
           <img src={logoregister} alt="" />
         </div>
         <div className="col ">
@@ -39,6 +38,7 @@ function LoginForm() {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
+
               {/*Password*/}
               <div className="input-group px-3 p-3 mb-3">
                 <input

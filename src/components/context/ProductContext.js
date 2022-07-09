@@ -8,17 +8,16 @@ function ProductContextProvider({ children }) {
   const [product, setProduct] = useState([]);
   const [fetch, setFetch] = useState(false);
 
+  const fetchProduct = async () => {
+    const res = await axios.get("/products");
+    setProduct(res.data.products);
+  };
   useEffect(() => {
-    const fetchProduct = async () => {
-      const res = await axios.get("/products");
-      setProduct(res.data.products);
-      console.log(res);
-    };
     fetchProduct();
   }, [fetch]);
 
   return (
-    <ProductContext.Provider value={{ product, setFetch }}>
+    <ProductContext.Provider value={{ product, setFetch, fetchProduct }}>
       {children}
     </ProductContext.Provider>
   );

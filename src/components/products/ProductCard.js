@@ -1,10 +1,10 @@
-import axios from "axios";
+import axios from "../../config/axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import profileImg from "../../assets/images/profileImg.png";
 import { useAuth } from "../context/AuthContext";
 
-function ProductCard({ src, title, price, onClick }) {
+function ProductCard({ src, title, price, onClick, id }) {
   const navigate = useNavigate();
   const { user } = useAuth();
 
@@ -22,22 +22,24 @@ function ProductCard({ src, title, price, onClick }) {
 
           {user?.role === "admin" ? (
             <>
-              <div className="row">
-                <button
-                  onClick={() => navigate("/showproduct")}
-                  className="card-text col-10"
-                >
-                  Chose product
-                </button>
-                <button onClick={onClick} className="bi-trash card-text col-2">
-                  D
-                </button>
+              <div className="row d-flex">
+                <div className="d-flex justify-content-between mt-1">
+                  <button
+                    className="btn border-danger"
+                    onClick={() => navigate("/admin/" + id)}
+                  >
+                    Edit
+                  </button>
+                  <button onClick={onClick} className="btn border-danger">
+                    delete
+                  </button>
+                </div>
               </div>
             </>
           ) : (
             <button
-              onClick={() => navigate("/showproduct")}
-              className="card-text"
+              onClick={() => navigate("/showproduct/" + id)}
+              className="btn border-danger card-text"
             >
               Chose product
             </button>

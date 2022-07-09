@@ -13,18 +13,38 @@ function Header() {
         <div className="container bg-danger">
           <Logo />
           {user ? (
-            <div className="d-flex justify-content-end align-items-center gap-3">
+            <div className="d-flex bg-danger justify-content-end align-items-center gap-3">
               {user?.role === "admin" ? (
                 <>
-                  <button onClick={() => Navigate("/admin")}>admin</button>
-                  <button onClick={() => Navigate("/product")}>products</button>
+                  <button
+                    className="border-0 bg-danger text-center p-0"
+                    onClick={() => Navigate("/admin")}
+                  >
+                    admin
+                  </button>
+                  <button
+                    className="border-0 bg-danger text-center p-0"
+                    onClick={() => Navigate("/product")}
+                  >
+                    products
+                  </button>
                 </>
               ) : (
                 <>
-                  <button onClick={() => Navigate("/product")}>products</button>
+                  <button
+                    className="border-0 bg-danger text-center p-0"
+                    onClick={() => Navigate("/product")}
+                  >
+                    products
+                  </button>
                 </>
               )}
-              <button onClick={logout}>logout</button>
+              <button
+                className="border-0 bg-danger text-center p-0"
+                onClick={logout}
+              >
+                logout
+              </button>
             </div>
           ) : (
             <div className="d-flex justify-content-end align-items-center">
